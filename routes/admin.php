@@ -17,9 +17,9 @@ Route::middleware('web')->group(function () {
     Route::get('/panel', \App\Http\Livewire\Admin\IndexPanel::class)->name('panel');
 
     Route::prefix('posts')->name('posts.')->group(function () {
-        Route::get('/', \App\Http\Livewire\Admin\Posts\PostIndex::class)->name('index');
-        Route::get('/create', \App\Http\Livewire\Admin\Posts\PostCreate::class)->name('create');
-        Route::get('/edit/{post}', \App\Http\Livewire\Admin\Posts\PostEdit::class)->name('edit');
+        Route::get('/', \App\Http\Livewire\Admin\posts\PostIndex::class)->name('index');
+        Route::get('/create', \App\Http\Livewire\Admin\posts\PostCreate::class)->name('create');
+        Route::get('/edit/{post}', \App\Http\Livewire\Admin\posts\PostEdit::class)->name('edit');
     });
 
     Route::prefix('categories')->name('categories.')->group(function () {

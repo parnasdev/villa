@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('web')->group(function () {
-    Route::get('/', \App\Http\Livewire\Dashboard\DashboardIndex::class)->name('dashboard');
+    Route::get('/', \App\Http\Livewire\dashboard\DashboardIndex::class)->name('dashboard');
 
 });
 Route::prefix('')->group(function () {
