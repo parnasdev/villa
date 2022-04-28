@@ -1,3 +1,4 @@
+<img src="/images/backgrounf.png" alt="">
 <section class="section-card my-4">
     <div class="container">
         <div class="row">
@@ -22,12 +23,17 @@
                         <div class="swiper-data swiper-slide bg-white ms-3 mb-3" >
                             <div class="over-background"></div>
                             <div class="image">
-                                <img src="/images/pic-01.png" alt="" />
+{{--                                @dd($item->residenceFiles[0]->url)url--}}
+{{--                                @dd($item->residenceFiles)--}}
+                                <img src="{{$item->residenceFiles()->first()->url}}" alt="" />
                             </div>
                             <div class="text data-info d-flex flex-column justify-content-between">
                                 <div class="up-data">
                                     <div class="title mb-1">
-                                        <span class="text-white">{{$item->title}}</span>
+                                        <a href="/info/{{$item->id}}">
+                                            <span class="text-white">{{$item->title}}</span>
+
+                                        </a>
                                     </div>
                                     <div class="paragraph">
                                         <span style="color: white">تاریخ ایجاد :</span>
@@ -53,68 +59,68 @@
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
-            <div class="isMobile" style="display: none;">
-                <!--? parent (Mobile)  -->
-                <div class="p-card d-flex">
-                    <!--? swiper wrapper main  -->
-                    <!--? child  -->
-                    <div class="swiper-data bg-white ms-3 mb-3">
-                        <div class="over-background"></div>
-                        <div class="image">
-                            <img src="/images/pic-01.png" alt="" />
-                        </div>
-                        <div class="text data-info d-flex flex-column justify-content-between">
-                            <div class="up-data">
-                                <div class="title mb-1">
-                                    <span class="text-white">عنوان تایتل شما در بخش اول</span>
-                                </div>
-                                <div class="paragraph">
-                                    <p class="text-white">نمونه تست پاراگراف</p>
-                                </div>
-                                <div class="text">
-                                    <p class="text-white">2 خوابه ، مدل اول ، شیراز</p>
-                                </div>
-                            </div>
-                            <div class="price d-flex justify-content-end">
-                                <div class="text ms-2">
-                                    <span class="text-white">1/560/000/000</span>
-                                </div>
-                                <div class="unit">
-                                    <span class="text-white">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--? child  -->
-                    <div class="swiper-data bg-white ms-3 mb-3">
-                        <div class="over-background"></div>
-                        <div class="image">
-                            <img src="/images/pic-01.png" alt="" />
-                        </div>
-                        <div class="text data-info d-flex flex-column justify-content-between">
-                            <div class="up-data">
-                                <div class="title mb-1">
-                                    <span class="text-white">عنوان تایتل شما در بخش اول</span>
-                                </div>
-                                <div class="paragraph">
-                                    <p class="text-white">نمونه تست پاراگراف</p>
-                                </div>
-                                <div class="text">
-                                    <p class="text-white">2 خوابه ، مدل اول ، شیراز</p>
-                                </div>
-                            </div>
-                            <div class="price d-flex justify-content-end">
-                                <div class="text ms-2">
-                                    <span class="text-white">1/560/000/000</span>
-                                </div>
-                                <div class="unit">
-                                    <span class="text-white">تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="isMobile" style="display: none;">--}}
+{{--                <!--? parent (Mobile)  -->--}}
+{{--                <div class="p-card d-flex">--}}
+{{--                    <!--? swiper wrapper main  -->--}}
+{{--                    <!--? child  -->--}}
+{{--                    <div class="swiper-data bg-white ms-3 mb-3">--}}
+{{--                        <div class="over-background"></div>--}}
+{{--                        <div class="image">--}}
+{{--                            <img src="/images/pic-01.png" alt="" />--}}
+{{--                        </div>--}}
+{{--                        <div class="text data-info d-flex flex-column justify-content-between">--}}
+{{--                            <div class="up-data">--}}
+{{--                                <div class="title mb-1">--}}
+{{--                                    <span class="text-white">عنوان تایتل شما در بخش اول</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="paragraph">--}}
+{{--                                    <p class="text-white">نمونه تست پاراگراف</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="text">--}}
+{{--                                    <p class="text-white">2 خوابه ، مدل اول ، شیراز</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="price d-flex justify-content-end">--}}
+{{--                                <div class="text ms-2">--}}
+{{--                                    <span class="text-white">1/560/000/000</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="unit">--}}
+{{--                                    <span class="text-white">تومان</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!--? child  -->--}}
+{{--                    <div class="swiper-data bg-white ms-3 mb-3">--}}
+{{--                        <div class="over-background"></div>--}}
+{{--                        <div class="image">--}}
+{{--                            <img src="/images/pic-01.png" alt="" />--}}
+{{--                        </div>--}}
+{{--                        <div class="text data-info d-flex flex-column justify-content-between">--}}
+{{--                            <div class="up-data">--}}
+{{--                                <div class="title mb-1">--}}
+{{--                                    <span class="text-white">عنوان تایتل شما در بخش اول</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="paragraph">--}}
+{{--                                    <p class="text-white">نمونه تست پاراگراف</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="text">--}}
+{{--                                    <p class="text-white">2 خوابه ، مدل اول ، شیراز</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="price d-flex justify-content-end">--}}
+{{--                                <div class="text ms-2">--}}
+{{--                                    <span class="text-white">1/560/000/000</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="unit">--}}
+{{--                                    <span class="text-white">تومان</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 </section>

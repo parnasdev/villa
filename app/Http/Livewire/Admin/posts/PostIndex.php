@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Posts;
+namespace App\Http\Livewire\Admin\posts;
 
 use App\Http\Extra\TableFunction;
 use App\Models\Post;

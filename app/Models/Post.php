@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Packages\academy\src\Models\HasAcademy;
 use App\Models\Extra\{WithComment, WithPostFile, WithVisit};
 use Cviebrock\EloquentSluggable\{Sluggable, SluggableScopeHelpers};
 use Illuminate\Database\Eloquent\Factories\HasFactory;

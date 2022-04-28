@@ -4,29 +4,29 @@
             {{ session('message')['title'] }}
         </x-parnas.alert>
     @endif
-        <div class="d-flex justify-content-between">
-            <x-parnas.form-group class="mb-2 w-25">
-                <x-parnas.label class="mb-2">عملیات انتخابی ها</x-parnas.label>
-                <x-parnas.inputs.select class="form-select" wire:model="action" wire:change="actionMessage">
-                    <x-parnas.inputs.option value="0">
-                        -
-                    </x-parnas.inputs.option>
-                    <x-parnas.inputs.option value="1">
-                        حذف انتخابی ها
-                    </x-parnas.inputs.option>
-                    @if($trash)
-                        <x-parnas.inputs.option value="2">
-                            بازگردانی انتخابی ها
-                        </x-parnas.inputs.option>
-                    @endif
-                </x-parnas.inputs.select>
-            </x-parnas.form-group>
-            <div>
-                <x-parnas.buttons.button class="btn btn-sm btn-outline-{{ $trash ? 'primary' : 'danger' }}" wire:click="showTrash">
-                    <i class="fas fa-{{ $trash ? 'eye' : 'trash'}}"></i>{{ $trash ? ' نمایش لیست' : ' نمایش سطل آشغال' }}
-                </x-parnas.buttons.button>
-            </div>
-        </div>
+{{--        <div class="d-flex justify-content-between">--}}
+{{--            <x-parnas.form-group class="mb-2 w-25">--}}
+{{--                <x-parnas.label class="mb-2">عملیات انتخابی ها</x-parnas.label>--}}
+{{--                <x-parnas.inputs.select class="form-select" wire:model="action" wire:change="actionMessage">--}}
+{{--                    <x-parnas.inputs.option value="0">--}}
+{{--                        ---}}
+{{--                    </x-parnas.inputs.option>--}}
+{{--                    <x-parnas.inputs.option value="1">--}}
+{{--                        حذف انتخابی ها--}}
+{{--                    </x-parnas.inputs.option>--}}
+{{--                    @if($trash)--}}
+{{--                        <x-parnas.inputs.option value="2">--}}
+{{--                            بازگردانی انتخابی ها--}}
+{{--                        </x-parnas.inputs.option>--}}
+{{--                    @endif--}}
+{{--                </x-parnas.inputs.select>--}}
+{{--            </x-parnas.form-group>--}}
+{{--            <div>--}}
+{{--                <x-parnas.buttons.button class="btn btn-sm btn-outline-{{ $trash ? 'primary' : 'danger' }}" wire:click="showTrash">--}}
+{{--                    <i class="fas fa-{{ $trash ? 'eye' : 'trash'}}"></i>{{ $trash ? ' نمایش لیست' : ' نمایش سطل آشغال' }}--}}
+{{--                </x-parnas.buttons.button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="table-responsive position-relative"
              x-data="{
             ordering(col) {
@@ -116,14 +116,14 @@
                             <x-parnas.buttons.link class="btn btn-sm btn-primary" href="/admin/villa/edit/{{$villa->id}}">
                                 <i class="fas fa-edit"></i>
                             </x-parnas.buttons.link>
-                            <x-parnas.buttons.button class="btn btn-sm btn-danger" wire:click="message({{ $villa->id }} , {{ $trash }})">
-                                <i class="fas fa-trash"></i>
-                            </x-parnas.buttons.button>
-                            @if($villa->trashed())
-                                <x-parnas.buttons.button class="btn btn-sm btn-success" wire:click="message({{ $villa->id }} , {{ $trash }} , true)">
-                                    <i class="fas fa-redo-alt"></i>
-                                </x-parnas.buttons.button>
-                            @endif
+{{--                            <x-parnas.buttons.button class="btn btn-sm btn-danger" wire:click="message({{ $villa->id }} , {{ $trash }})">--}}
+{{--                                <i class="fas fa-trash"></i>--}}
+{{--                            </x-parnas.buttons.button>--}}
+{{--                            @if($villa->trashed())--}}
+{{--                                <x-parnas.buttons.button class="btn btn-sm btn-success" wire:click="message({{ $villa->id }} , {{ $trash }} , true)">--}}
+{{--                                    <i class="fas fa-redo-alt"></i>--}}
+{{--                                </x-parnas.buttons.button>--}}
+{{--                            @endif--}}
                         </td>
                     </tr>
                     @empty
@@ -133,25 +133,25 @@
                 @endforelse
                 </tbody>
             </table>
-            <div class="d-flex justify-content-between">
-                <x-parnas.form-group class="mb-2 w-25">
-                    <x-parnas.label class="mb-2">عملیات انتخابی ها</x-parnas.label>
-                    <x-parnas.inputs.select class="form-select" wire:model="action" wire:change="actionMessage">
-                        <x-parnas.inputs.option value="0">
-                            -
-                        </x-parnas.inputs.option>
-                        <x-parnas.inputs.option value="1">
-                            حذف انتخابی ها
-                        </x-parnas.inputs.option>
-                        @if($trash)
-                            <x-parnas.inputs.option value="2">
-                                بازگردانی انتخابی ها
-                            </x-parnas.inputs.option>
-                        @endif
-                    </x-parnas.inputs.select>
-                </x-parnas.form-group>
+{{--            <div class="d-flex justify-content-between">--}}
+{{--                <x-parnas.form-group class="mb-2 w-25">--}}
+{{--                    <x-parnas.label class="mb-2">عملیات انتخابی ها</x-parnas.label>--}}
+{{--                    <x-parnas.inputs.select class="form-select" wire:model="action" wire:change="actionMessage">--}}
+{{--                        <x-parnas.inputs.option value="0">--}}
+{{--                            ---}}
+{{--                        </x-parnas.inputs.option>--}}
+{{--                        <x-parnas.inputs.option value="1">--}}
+{{--                            حذف انتخابی ها--}}
+{{--                        </x-parnas.inputs.option>--}}
+{{--                        @if($trash)--}}
+{{--                            <x-parnas.inputs.option value="2">--}}
+{{--                                بازگردانی انتخابی ها--}}
+{{--                            </x-parnas.inputs.option>--}}
+{{--                        @endif--}}
+{{--                    </x-parnas.inputs.select>--}}
+{{--                </x-parnas.form-group>--}}
 {{--                {{$villas->links() }}--}}
-            </div>
+{{--            </div>--}}
         </div>
 
 </div>

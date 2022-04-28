@@ -4,6 +4,7 @@ namespace Packages\Villa\src\Http\Livewire\Home;
 
 use App\Models\City;
 use App\Models\Province;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Packages\Villa\src\Models\Residence;
 use Packages\Villa\src\Models\ResidenceDate;
@@ -165,28 +166,33 @@ class InfoPage extends Component
 
     public function submit()
     {
+        if(Auth::user()) {
+            if (count($this->datesSelected) > 0) {
 
-        if (count($this->datesSelected) > 0) {
-
-            ResidenceReserve::query()->create([
-                'residence_id' => $this->residence->id,
-                'checkIn' => $this->datesSelected[0]['dateEn'],
-                'checkOut' => $this->datesSelected[count($this->datesSelected) - 1]['dateEn'],
-                'totalPrice' => $this->getTotalPrice(),
-                'user_id' => user()->id,
-                'name' => $this->name,
-                'count' => (int)$this->count,
-                'family' => $this->family,
-                'phone' => $this->phone,
-                'status_id' => 6,
-            ]);
-            $this->fillCalendarRequest();
-            session()->flash('message', ['title' => 'رزرو شما انجام شد', 'icon' => 'success']);
-            $this->removeSelection();
-            $this->dispatchBrowserEvent('send-data', $this->getCalender($this->calendarRequest));
-        } else {
-            dd('لطفا روزهای خود را انتخاب کنید.');
+                ResidenceReserve::query()->create([
+                    'residence_id' => $this->residence->id,
+                    'checkIn' => $this->datesSelected[0]['dateEn'],
+                    'checkOut' => $this->datesSelected[count($this->datesSelected) - 1]['dateEn'],
+                    'totalPrice' => $this->getTotalPrice(),
+                    'user_id' => user()->id,
+                    'name' => $this->name,
+                    'count' => (int)$this->count,
+                    'family' => $this->family,
+                    'phone' => $this->phone,
+                    'status_id' => 6,
+                ]);
+                $this->fillCalendarRequest();
+                session()->flash('message', ['title' => 'درخپاست رزرو شما انجام شد', 'icon' => 'success']);
+                $this->removeSelection();
+                $this->dispatchBrowserEvent('send-data', $this->getCalender($this->calendarRequest));
+            } else {
+                dd('لطفا روزهای خود را انتخاب کنید.');
+            }
+        }else {
+           dd('لطفا ورود کنید');
         }
+
+
     }
 
 

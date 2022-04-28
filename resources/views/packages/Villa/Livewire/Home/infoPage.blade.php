@@ -1,3 +1,7 @@
+<div>
+    @if(session()->has('message'))
+        {{ session('message')['title'] }}
+    @endif
 <div x-data="{
         calenders: @entangle('calenderData'),
         month: @entangle('currentMonth'),
@@ -83,8 +87,6 @@
    }
 " @send-data.window="getDates">
     <!--? section 1 -->
-
-
 
     <section class="vila">
         <div class="prs-responsive">
@@ -347,4 +349,5 @@
 
 
 
+</div>
 </div>

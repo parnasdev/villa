@@ -310,7 +310,7 @@
                                                 </div>
                                                 <div class="col-lg-7 p-1">
 
-                                                    <select name="" id=""                                                      
+                                                    <select name="" id=""
                                                             wire:model.defer="req.twinBed">
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
