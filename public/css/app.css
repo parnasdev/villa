@@ -7712,11 +7712,16 @@ body {
   border-radius: 10px;
 }
 
+.villa-listpage .item-villa-index {
+  margin-top: 15px !important;
+}
+
 .villa-list-index {
   margin: 2rem auto 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .villa-list-index .item-villa-index {
   border: 1px solid #eee;
