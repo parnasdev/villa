@@ -6283,3 +6283,40 @@ main {
 .item-page-2 .price {
   font-size: 14px;
 }
+
+.btn-submit-price {
+  width: auto;
+  height: 45px;
+  border-radius: 8px;
+  margin: 1rem auto 0 auto;
+  border: none;
+  outline: none;
+  background-color: blueviolet;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.select-pricemangemt-top {
+  height: 45px;
+  width: 150px;
+  border-radius: 8px;
+  border: 2px solid #dbdbdb;
+  outline-color: #dbdbdb;
+  padding: 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.inp-admin-style {
+  height: 45px;
+  width: 250px;
+  border-radius: 8px;
+  border: 2px solid #dbdbdb;
+  outline-color: #dbdbdb;
+  padding: 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 1rem;
+}

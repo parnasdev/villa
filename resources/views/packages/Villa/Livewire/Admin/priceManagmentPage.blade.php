@@ -90,7 +90,7 @@ $wire.addDateToList(dateItem).then(result => {
         }
    }
 " @send-data.window="getDates">
-        <select name="" id="" wire:model="selectType">
+        <select class="select-pricemangemt-top" name="" id="" wire:model="selectType">
             <option value="1">به صورت بازه</option>
             <option value="2">به صورت تکی</option>
         </select>
@@ -207,8 +207,8 @@ $wire.addDateToList(dateItem).then(result => {
     @endforeach
     <form wire:submit.prevent="submit">
 
-        <input type="text" wire:model="price" placeholder="قیمت خود را وارد کنید">
-        <button type="submit">ثبت قیمت</button>
+        <input class="inp-admin-style" type="text" wire:model="price" placeholder="قیمت خود را وارد کنید">
+        <button class="btn-submit-price" type="submit">ثبت قیمت</button>
     </form>
 
 
