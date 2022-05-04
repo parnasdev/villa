@@ -3,7 +3,7 @@
     @if(session()->has('message'))
         {{ session('message')['title'] }}
     @endif
-    <div class="calender" x-data="{
+    <div style="width: 100% !important;padding: 0 5rem !important;" class="calender" x-data="{
         calenders: @entangle('calenderData'),
         month: @entangle('currentMonth'),
         year: @entangle('currentYear'),
@@ -94,51 +94,50 @@ $wire.addDateToList(dateItem).then(result => {
             <option value="1">به صورت بازه</option>
             <option value="2">به صورت تکی</option>
         </select>
-
-        <div class="calenders">
-            <section>
-                <div class="calender">
-                    <div class="loading" x-show="isLoading">
-                        <div>
-                            <div class="spinner-loading"></div>
-                            <h2 class="h2">صبرکنید ...</h2>
-                        </div>
+<div class="d-flex w-100 justify-content-evenly align-items-start">
+    <div style="width: 52% !important;" class="calenders">
+            <div style="width: 100% !important;margin: 0" class="calender">
+                <div class="loading" x-show="isLoading">
+                    <div>
+                        <div class="spinner-loading"></div>
+                        <h2 class="h2">صبرکنید ...</h2>
                     </div>
-                    <div class="header-calender">
-                        <div class="month-prev" @click="previousMonth()">
-                            <svg id="Outline" viewBox="0 0 24 24" width="22" height="22">
-                                <path
-                                    d="M7,24a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l8.17-8.17a3,3,0,0,0,0-4.24L6.29,1.71A1,1,0,0,1,7.71.29l8.17,8.17a5,5,0,0,1,0,7.08L7.71,23.71A1,1,0,0,1,7,24Z"/>
-                            </svg>
-                            <span class="text-month-prev" >ماه قبل</span>
-                        </div>
-                        <div class="date-header">
-                            <strong>{{ $months->firstWhere('id' , $currentMonth ?? 1)['text'] }}</strong>
-                            <strong class="years"> {{$currentYear}}</strong>
-                        </div>
-                        <div class="month-next" @click="nextMonth()">
-                            <a class="text-month-next" >ماه بعد</a>
-                            <svg id="Outline" viewBox="0 0 24 24" width="22" height="22">
-                                <path
-                                    d="M7,24a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l8.17-8.17a3,3,0,0,0,0-4.24L6.29,1.71A1,1,0,0,1,7.71.29l8.17,8.17a5,5,0,0,1,0,7.08L7.71,23.71A1,1,0,0,1,7,24Z"/>
-                            </svg>
-                        </div>
+                </div>
+                <div class="header-calender">
+                    <div class="month-prev" @click="previousMonth()">
+                        <svg id="Outline" viewBox="0 0 24 24" width="22" height="22">
+                            <path
+                                d="M7,24a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l8.17-8.17a3,3,0,0,0,0-4.24L6.29,1.71A1,1,0,0,1,7.71.29l8.17,8.17a5,5,0,0,1,0,7.08L7.71,23.71A1,1,0,0,1,7,24Z"/>
+                        </svg>
+                        <span class="text-month-prev" >ماه قبل</span>
                     </div>
-                    <div class="body-calender">
-                        <div class="week-header">
-                            <label for="">شنبه</label>
-                            <label for="">یکشنبه</label>
-                            <label for="">دوشنبه</label>
-                            <label for="">سه شنبه</label>
-                            <label for="">چهار شنبه</label>
-                            <label for="">پنج شنبه</label>
-                            <label for="">جمعه</label>
-                        </div>
-                        <div class="week-body">
+                    <div class="date-header">
+                        <strong>{{ $months->firstWhere('id' , $currentMonth ?? 1)['text'] }}</strong>
+                        <strong class="years"> {{$currentYear}}</strong>
+                    </div>
+                    <div class="month-next" @click="nextMonth()">
+                        <a class="text-month-next" >ماه بعد</a>
+                        <svg id="Outline" viewBox="0 0 24 24" width="22" height="22">
+                            <path
+                                d="M7,24a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l8.17-8.17a3,3,0,0,0,0-4.24L6.29,1.71A1,1,0,0,1,7.71.29l8.17,8.17a5,5,0,0,1,0,7.08L7.71,23.71A1,1,0,0,1,7,24Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="body-calender">
+                    <div class="week-header">
+                        <label for="">شنبه</label>
+                        <label for="">یکشنبه</label>
+                        <label for="">دوشنبه</label>
+                        <label for="">سه شنبه</label>
+                        <label for="">چهار شنبه</label>
+                        <label for="">پنج شنبه</label>
+                        <label for="">جمعه</label>
+                    </div>
+                    <div class="week-body">
 
-                            <template x-for="(x , index) in calenders?.dates">
-                                <div class="item-number-day"
-                                     :class="{
+                        <template x-for="(x , index) in calenders?.dates">
+                            <div class="item-number-day"
+                                 :class="{
                              'date-selected' : isItemExistToSelected(x).length > 0,
                              'date-dayIn' : dayIn === x,
                              'date-dayOut':dayOut === x,
@@ -146,70 +145,73 @@ $wire.addDateToList(dateItem).then(result => {
                              'not-set-price':(x.data.length === 0 || !x.data[x.data.length - 1].price) && !getIsDaysGone(x)
                              }"
 
-                                     @click="(getIsDaysGone(x)) ? onItemClicked(null) :onItemClicked(x)">
-                                    <template x-if="x.isToday">
-                                        <label class="active-day" for="">امروز</label>
+                                 @click="(getIsDaysGone(x)) ? onItemClicked(null) :onItemClicked(x)">
+                                <template x-if="x.isToday">
+                                    <label class="active-day" for="">امروز</label>
+                                </template>
+
+                                <template x-if="x.data.length > 0 && x.data[x.data.length - 1].isReserved && !getIsDaysGone(x)">
+                                    <label class="reserved" for="">رزرو</label>
+                                </template>
+                                {{--                                                        <template x-if="x.data.length > 0 && !x.data[x.data.length - 1].isReserved && !getIsDaysGone(x)">--}}
+                                {{--                                                            <label class="not-reserved" for="">رزرو نشده</label>--}}
+                                {{--                                                        </template>--}}
+
+                                <h1 class="number" :class="{ 'text-danger' : x.isHolyDay  }"
+                                    x-text="x.dateFa.split('-')[2]"></h1>
+                                {{--                                                                <small style="font-size: 12px">رزرو شده</small>--}}
+                                <div class="price-day">
+                                    <template x-if="x.data.length > 0 && x.data[x.data.length - 1].price && !getIsDaysGone(x)">
+
+                                        <span x-text="(x.data[x.data.length - 1].price / 1000) + ' ' + 'ت'"></span>
                                     </template>
-
-                                    <template x-if="x.data.length > 0 && x.data[x.data.length - 1].isReserved && !getIsDaysGone(x)">
-                                        <label class="reserved" for="">رزرو</label>
-                                    </template>
-                                    {{--                                                        <template x-if="x.data.length > 0 && !x.data[x.data.length - 1].isReserved && !getIsDaysGone(x)">--}}
-                                    {{--                                                            <label class="not-reserved" for="">رزرو نشده</label>--}}
-                                    {{--                                                        </template>--}}
-
-                                    <h1 class="number" :class="{ 'text-danger' : x.isHolyDay  }"
-                                        x-text="x.dateFa.split('-')[2]"></h1>
-{{--                                                                <small style="font-size: 12px">رزرو شده</small>--}}
-                                    <div class="price-day">
-                                        <template x-if="x.data.length > 0 && x.data[x.data.length - 1].price && !getIsDaysGone(x)">
-
-                                            <span x-text="(x.data[x.data.length - 1].price / 1000) + ' ' + 'ت'"></span>
-                                        </template>
-                                        <template
-                                            x-if="(x.data.length === 0 || !x.data[x.data.length - 1].price) && (x.status !== 'Disabled' && x.status !== 'Hidden')">
-                                            <span>قیمت ندارد</span>
-                                        </template>
-                                    </div>
-{{--                                                                <template x-if="x.data.length > 0 && x.data[x.data.length - 1].isReserved">--}}
-
-{{--                                                                    <span x-text="'رزرو شده'"></span>--}}
-{{--                                                                </template>--}}
-                                    {{--                            <template x-if="x.data.length === 0 || !x.data[x.data.length - 1].isReserved">--}}
-
-                                    {{--                                <small x-text="'رزرو نشده'"></small>--}}
-                                    {{--                            </template>--}}
-                                    <template x-if="x.status === 'Disabled' || x.status === 'Hidden'">
-                                        <div class="disable-day">
-                                            <div class="linear-disable"></div>
-
-                                        </div>
+                                    <template
+                                        x-if="(x.data.length === 0 || !x.data[x.data.length - 1].price) && (x.status !== 'Disabled' && x.status !== 'Hidden')">
+                                        <span>قیمت ندارد</span>
                                     </template>
                                 </div>
-                            </template>
-                        </div>
+                                {{--                                                                <template x-if="x.data.length > 0 && x.data[x.data.length - 1].isReserved">--}}
+
+                                {{--                                                                    <span x-text="'رزرو شده'"></span>--}}
+                                {{--                                                                </template>--}}
+                                {{--                            <template x-if="x.data.length === 0 || !x.data[x.data.length - 1].isReserved">--}}
+
+                                {{--                                <small x-text="'رزرو نشده'"></small>--}}
+                                {{--                            </template>--}}
+                                <template x-if="x.status === 'Disabled' || x.status === 'Hidden'">
+                                    <div class="disable-day">
+                                        <div class="linear-disable"></div>
+
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
                     </div>
                 </div>
-            </section>
+            </div>
+    </div>
+    <div style="width: 45%" class=" box-pricemangemnt-left">
+        <div class="day-selected">
+            <span>روزهای انتخابی</span>
         </div>
-
-    </div>
-    <div class="day-selected">
-        <span>روزهای انتخابی</span>
-    </div>
-    @foreach(($datesSelected) as $dateItem)
-        <div class="price-day">
-            <span>{{$dateItem['dateFa']}}</span>
+        @foreach(($datesSelected) as $dateItem)
+            <div class="price-day">
+                <span>{{$dateItem['dateFa']}}</span>
 
                 {{--                                        <strong>تومان</strong>--}}
 
-        </div>
-    @endforeach
-    <form wire:submit.prevent="submit">
+            </div>
+        @endforeach
+        <form wire:submit.prevent="submit">
 
-        <input class="inp-admin-style" type="text" wire:model="price" placeholder="قیمت خود را وارد کنید">
-        <button class="btn-submit-price" type="submit">ثبت قیمت</button>
-    </form>
+            <input class="inp-admin-style" type="text" wire:model="price" placeholder="قیمت خود را وارد کنید">
+            <button class="btn-submit-price" type="submit">ثبت قیمت</button>
+        </form>
+
+    </div>
+</div>
+
+    </div>
 
 
 </div>

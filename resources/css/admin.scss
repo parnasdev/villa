@@ -1633,6 +1633,7 @@ main {
     padding: 0 8px;
     font-size: 14px;
     font-weight: 600;
+    margin: 2rem 1rem 0 0;
 }
 .inp-admin-style{
     height: 45px;
@@ -1644,5 +1645,10 @@ main {
     font-size: 14px;
     font-weight: 600;
     margin-top: 1rem;
+}
+.box-pricemangemnt-left{
+    border-radius: 10px;
+    border: 2px solid #dbdbdb;
+    padding: 10px;
 }
 //end reserve info styles
